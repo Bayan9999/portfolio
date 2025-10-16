@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Idowu Bayan — Full‑Stack Developer</title>
+    <link rel="icon" href="skillbridge-logo.png" />
+    <meta name="description"
+        content="Idowu Bayan — Full‑Stack Developer (HTML • JS • Node • Firebase). Projects: SkillBridge, GeneLink." />
+    <style>
+        /* Dark & Modern portfolio - neon accents */
+        :root {
+            --bg: #06060a;
+            --card: #0f1220;
+            --muted: #9aa3b2;
+            --neon: #00ffd5;
+            /* cyan neon */
+            --accent: #7c5cff;
+            /* purple accent */
+            --glass: rgba(255, 255, 255, 0.04);
+            --radius: 14px;
+            --maxw: 1100px;
+            --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Segoe UI Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+            background: linear-gradient(180deg, #05060a 0%, #0b0d12 100%);
+            color: #e6eef6
+        }
+
+        a {
+            color: var(--neon);
+            text-decoration: none
+        }
+
+        .site {
+            max-width: var(--maxw);
+            margin: 40px auto;
+            padding: 28px;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px
+        }
+
+        .brand {
+            display: flex;
+            gap: 14px;
+            align-items: center
+        }
+
+        .logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), var(--neon));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #05060a
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            margin: 0
+        }
+
+        .title-sub {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-top: 4px
+        }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 28px;
+            margin-top: 28px;
+            align-items: center
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6)
+        }
+
+        .intro h2 {
+            font-size: 1.9rem;
+            margin: 0 0 10px;
+            color: linear-gradient(90deg, var(--neon), var(--accent))
+        }
+
+        .intro p {
+            color: var(--muted);
+            line-height: 1.6
+        }
+
+        .cta-row {
+            margin-top: 16px;
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 10px 14px;
+            border-radius: 10px;
+            color: var(--neon);
+            cursor: pointer;
+            font-weight: 600
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--neon), var(--accent));
+            color: #05060a;
+            border: none
+        }
+
+        /* Right card */
+        .profile-card {
+            padding: 22px;
+            background: linear-gradient(180deg, rgba(124, 92, 255, 0.06), rgba(0, 255, 213, 0.02));
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03)
+        }
+
+        .avatar {
+            width: 88px;
+            height: 88px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), var(--neon));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #05060a;
+            margin-bottom: 12px
+        }
+
+        .meta {
+            color: var(--muted);
+            font-size: 0.9rem
+        }
+
+        /* Projects */
+        .section {
+            margin-top: 28px
+        }
+
+        .section h3 {
+            margin: 0 0 12px;
+            color: #dbe9ff
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px
+        }
+
+        .project {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03)
+        }
+
+        .project h4 {
+            margin: 0 0 8px;
+            color: var(--neon)
+        }
+
+        .project p {
+            color: var(--muted);
+            font-size: 0.95rem
+        }
+
+        .tags {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px
+        }
+
+        .tag {
+            font-family: var(--mono);
+            background: var(--glass);
+            padding: 6px 8px;
+            border-radius: 8px;
+            color: var(--muted);
+            font-size: 0.8rem
+        }
+
+        /* Skills */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .skill {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 8px 12px;
+            border-radius: 999px;
+            color: var(--muted);
+            font-weight: 600
+        }
+
+        /* Contact */
+        form.contact {
+            display: grid;
+            gap: 10px
+        }
+
+        input,
+        textarea {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 12px;
+            border-radius: 10px;
+            color: #e6eef6;
+            font-size: 0.95rem
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical
+        }
+
+        .muted {
+            color: var(--muted);
+            font-size: 0.9rem
+        }
+
+        footer {
+            margin-top: 36px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem
+        }
+
+        /* Responsive */
+        @media (max-width:900px) {
+            .hero {
+                grid-template-columns: 1fr
+            }
+
+            .site {
+                padding: 18px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="site">
+        <header>
+            <div class="brand">
+                <div class="logo">IB</div>
+                <div>
+                    <h1>Idowu Bayan</h1>
+                    <div class="title-sub">Full-Stack Developer</div>
+                </div>
+            </div>
+            <nav>
+                <a href="#projects" class="muted">Projects</a>
+                &nbsp;·&nbsp;
+                <a href="#skills" class="muted">Skills</a>
+                &nbsp;·&nbsp;
+                <a href="#contact" class="muted">Contact</a>
+            </nav>
+        </header>
+
+        <div class="hero">
+            <div class="card intro">
+                <h2 style="color:var(--neon)">Hi — I’m Idowu. I build clean, fast web apps.</h2>
+                <p>I’m a Full‑Stack Developer and Computer Science student. I specialize in modern web interfaces and
+                    realtime backends using <strong>HTML, JavaScript, Node.js</strong>, and <strong>Firebase</strong>.
+                    I’ve shipped production projects like <strong>SkillBridge</strong> and <strong>GeneLink</strong>.
+                </p>
+
+                <div class="cta-row">
+                    <a class="btn btn-primary" href="#contact">Hire me</a>
+                    <a class="btn" href="https://github.com/Bayan9999" target="_blank">View code on GitHub</a>
+                    <a class="btn" href="https://skillbridge-omega.vercel.app/" target="_blank">Live SkillBridge</a>
+                </div>
+
+                <div class="section" id="projects">
+                    <h3>Featured Projects</h3>
+                    <div class="grid">
+                        <article class="project">
+                            <h4>SkillBridge</h4>
+                            <p>Micro-skill & job matching platform — roles, assessments, and job listings. Built with
+                                Firebase, Node, and modern JS. Handles role-based access (student, instructor,
+                                recruiter).</p>
+                            <div class="tags">
+                                <span class="tag">Firebase</span>
+                                <span class="tag">Firestore</span>
+                                <span class="tag">Auth</span>
+                                <span class="tag">Vercel</span>
+                            </div>
+                        </article>
+
+                        <article class="project">
+                            <h4>GeneLink</h4>
+                            <p>Profile & linking app for researchers. (Project in portfolio — code available on GitHub).
+                                Focused on rapid prototyping and data integration.</p>
+                            <div class="tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">APIs</span>
+                            </div>
+                        </article>
+
+                        <article class="project">
+                            <h4>Portfolio Boilerplate</h4>
+                            <p>Developer portfolio template — dark, modern design with neon accents (this site!). Easy
+                                to fork and deploy on Vercel.</p>
+                            <div class="tags">
+                                <span class="tag">Template</span>
+                                <span class="tag">Deploy</span>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <aside class="profile-card card">
+                <div style="display:flex;flex-direction:column;align-items:center">
+                    <div class="avatar">IB</div>
+                    <strong>Idowu Bayan</strong>
+                    <div class="meta">Full-Stack Developer • HTML · JS · Node · Firebase</div>
+                </div>
+
+                <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:14px 0">
+
+                <div id="skills" class="section">
+                    <h3>Skills</h3>
+                    <div class="skills">
+                        <span class="skill">HTML</span>
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">Node.js</span>
+                        <span class="skill">Firebase</span>
+                        <span class="skill">Firestore</span>
+                        <span class="skill">Auth</span>
+                        <span class="skill">Responsive UI</span>
+                        <span class="skill">Deployment</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Contact</h3>
+                    <div class="muted">Email</div>
+                    <div style="margin-bottom:10px"><a href="mailto:bayanidowu@gmail.com">bayanidowu@gmail.com</a></div>
+                    <div class="muted">GitHub</div>
+                    <div style="margin-bottom:10px"><a href="https://github.com/Bayan9999"
+                            target="_blank">github.com/Bayan9999</a></div>
+                    <div style="display:flex;gap:8px;margin-top:8px">
+                        <a class="btn" href="#contact">Message</a>
+                        <a class="btn" href="https://skillbridge-omega.vercel.app/" target="_blank">Live</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <section id="contact" class="section card">
+            <h3>Contact Me</h3>
+            <p class="muted">Send a quick message — I typically reply within 24 hours.</p>
+            <form class="contact" id="contactForm">
+                <input id="name" placeholder="Your name" required />
+                <input id="email" placeholder="Your email" required />
+                <input id="subject" placeholder="Subject" />
+                <textarea id="message" placeholder="Message" required></textarea>
+                <div style="display:flex;gap:10px;align-items:center">
+                    <button class="btn btn-primary" type="submit">Send Message</button>
+                    <div class="muted">or email: <a href="mailto:bayanidowu@gmail.com">bayanidowu@gmail.com</a></div>
+                </div>
+            </form>
+        </section>
+
+        <footer>
+            © 2025 Idowu Bayan — Full‑Stack Developer
+        </footer>
+    </div>
+
+    <script>
+        // contact form — fallback to mailto for quick launch
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = encodeURIComponent(document.getElementById('name').value.trim());
+            const email = encodeURIComponent(document.getElementById('email').value.trim());
+            const subject = encodeURIComponent(document.getElementById('subject').value.trim() || 'Website contact');
+            const body = encodeURIComponent(document.getElementById('message').value.trim() + '\n\n--\n' + name + ' <' + decodeURIComponent(email) + '>');
+            // open default mail client
+            window.location.href = `mailto:bayanidowu@gmail.com?subject=${subject}&body=${body}`;
+        });
+    </script>
+</body>
+
+</html>
